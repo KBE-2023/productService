@@ -16,6 +16,7 @@ import java.util.Map;
  * The ProductController class defines the REST endpoints for the Product service.
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/products")
 public class ProductController {
 
