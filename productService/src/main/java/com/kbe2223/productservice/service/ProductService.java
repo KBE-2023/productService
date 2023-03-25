@@ -15,10 +15,11 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+
     /**
-     * Retrieves a price record by ID.
+     * Retrieves a product record by ID.
      *
-     * @param id The ID of the price record to retrieve.
+     * @param id The ID of the product record to retrieve.
      * @return The retrieved Product object, or null if no record with the specified ID was found.
      */
     public Product getProductById(Long id) {
@@ -26,9 +27,9 @@ public class ProductService {
     }
 
     /**
-     * Returns a list of all prices in the database.
+     * Returns a list of all products in the database.
      *
-     * @return a list of all prices in the database
+     * @return a list of all products in the database
      */
     public List<Product> getAllProducts() {
         return productRepository.findAll();
@@ -36,20 +37,20 @@ public class ProductService {
 
 
     /**
-     * Creates a new price record.
+     * Creates a new product record.
      *
-     * @param price The Product object representing the new price record.
+     * @param product The Product object representing the new product record.
      * @return The created Product object.
      */
-    public Product createProduct(Product price) {
-        return productRepository.save(price);
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
     }
 
     /**
-     * Updates an existing price record.
+     * Updates an existing product record.
      *
-     * @param id The ID of the price record to update.
-     * @param updatedProduct The updated Product object representing the new price information.
+     * @param id The ID of the product record to update.
+     * @param updatedProduct The updated Product object representing the new product information.
      * @return The updated Product object, or null if no record with the specified ID was found.
      */
     public Product updateProduct(Long id, Product updatedProduct) {
@@ -65,9 +66,9 @@ public class ProductService {
     }
 
     /**
-     * Deletes an existing price record.
+     * Deletes an existing product record.
      *
-     * @param id The ID of the price record to delete.
+     * @param id The ID of the product record to delete.
      */
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);

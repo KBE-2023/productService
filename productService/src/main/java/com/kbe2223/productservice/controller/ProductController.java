@@ -24,9 +24,9 @@ public class ProductController {
     private ProductService productService;
 
     /**
-     * Retrieves a price record by ID.
+     * Retrieves a product record by ID.
      *
-     * @param id The ID of the price record to retrieve.
+     * @param id The ID of the product record to retrieve.
      * @return A ResponseEntity containing the retrieved Product and an HTTP status code.
      */
     @GetMapping("/{id}")
@@ -40,9 +40,9 @@ public class ProductController {
 
 
     /**
-     * Returns a list of all prices in the database.
+     * Returns a list of all products in the database.
      *
-     * @return a list of all prices in the database, or NOT_FOUND if the database is empty
+     * @return a list of all products in the database, or NOT_FOUND if the database is empty
      */
     @GetMapping("/")
     public ResponseEntity<List<Product>> getAllProducts() {
@@ -55,9 +55,9 @@ public class ProductController {
 
 
     /**
-     * Creates a new price record.
+     * Creates a new product record.
      *
-     * @param product The Product object representing the new price record.
+     * @param product The Product object representing the new product record.
      * @return A ResponseEntity containing the created Product and an HTTP status code.
      */
     @PostMapping(value = "/",consumes = {"*/*"})
@@ -67,10 +67,10 @@ public class ProductController {
     }
 
     /**
-     * Updates an existing price record.
+     * Updates an existing product record.
      *
-     * @param id The ID of the price record to update.
-     * @param product The updated Product object representing the new price information.
+     * @param id The ID of the product record to update.
+     * @param product The updated Product object representing the new product information.
      * @return A ResponseEntity containing the updated Product and an HTTP status code.
      */
     @PutMapping("/{id}")
@@ -83,9 +83,9 @@ public class ProductController {
     }
 
     /**
-     * Deletes an existing price record.
+     * Deletes an existing product record.
      *
-     * @param id The ID of the price record to delete.
+     * @param id The ID of the product record to delete.
      * @return A ResponseEntity with an HTTP status code indicating success or failure.
      */
     @DeleteMapping("/{id}")
