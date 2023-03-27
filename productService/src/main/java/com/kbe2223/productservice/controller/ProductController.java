@@ -23,6 +23,14 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @CrossOrigin
+    @PostMapping(value = "/publish", consumes = {"*/*"})
+    public ResponseEntity<String> sendMessage(@RequestBody String message){
+        productService.feedProduct(message);
+//        System.out.println(message);
+        return ResponseEntity.ok("Message sent to RabbitMQ ...");
+    }
+
     /**
      * Retrieves a product record by ID.
      *

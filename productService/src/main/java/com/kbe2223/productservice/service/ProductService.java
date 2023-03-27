@@ -1,6 +1,7 @@
 package com.kbe2223.productservice.service;
 
 import com.kbe2223.productservice.entity.Product;
+import com.kbe2223.productservice.publisher.RabbitMQProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +16,27 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    private RabbitMQProducer producer;
+    public ProductService(RabbitMQProducer producer) {
+        this.producer = producer;
+    }
 
     /**
-     * Retrieves a product record by ID.
+     * Sends selected product to queue for basket insertion
      *
-     * @param id The ID of the product record to retrieve.
-     * @return The retrieved Product object, or null if no record with the specified ID was found.
+     * @param message The product that will be added to basket.
      */
+    public void feedProduct(String message) {
+        producer.sendMessage(message);
+    }
+
+
+        /**
+         * Retrieves a product record by ID.
+         *
+         * @param id The ID of the product record to retrieve.
+         * @return The retrieved Product object, or null if no record with the specified ID was found.
+         */
     public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
