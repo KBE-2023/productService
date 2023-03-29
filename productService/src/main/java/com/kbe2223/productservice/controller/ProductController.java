@@ -61,6 +61,16 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * All available items are loaded to homepage
+     *
+     * @return Notification "Saved"
+     */
+    @GetMapping(path="/create")
+    public String createAvailableProducts(){
+        productService.saveProduct();
+        return "Saved";
+    }
 
     /**
      * Creates a new product record.
